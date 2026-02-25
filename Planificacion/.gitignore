@@ -1,6 +1,3 @@
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
-
-.dockerignore
-Dockerfile
