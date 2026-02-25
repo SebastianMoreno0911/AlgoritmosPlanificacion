@@ -1,0 +1,168 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, #1e1e2f, #2f3238);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+/* Tarjetas */
+.card {
+  background: linear-gradient(135deg, #17161b, #423f46);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  width: 700px;
+  animation: fadein 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Botones base */
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Inputs */
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 5px 0 15px 0;
+  width: 100%;
+  background-color: #1f2937;
+  color: white;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+/* Ocultar */
+.oculto {
+  display: none;
+}
+
+/* Botones personalizados */
+.btn-primary {
+  background: linear-gradient(135deg, #322d91, #7c3aed);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #045d41, #10b981);
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #8e4e05, #f59e0b);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #891717, #ef4444);
+}
+
+.btn-damage {
+  background: linear-gradient(135deg, #5b0707, #cf8f8f);
+}
+
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-danger,
+.btn-damage {
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* CPU Box Glow */
+#cpuBox {
+  transition: all 0.4s ease;
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.7);
+}
+
+#cpuBox:hover {
+  transform: scale(1.05);
+}
+
+/* Cola animada */
+#colaBox div {
+  transition: all 0.3s ease;
+}
+
+#colaBox div:hover {
+  transform: translateY(-3px);
+}
+
+/* Gantt moderno */
+#ganttLive div {
+  animation: aparecer 0.3s ease;
+}
+
+/* Animaciones */
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* para que no tenga las flechas los inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* diseño responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  #cpuBox {
+    width: 90px;
+    height: 90px;
+    font-size: 18px;
+  }
+}

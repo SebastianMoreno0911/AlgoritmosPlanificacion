@@ -1,0 +1,118 @@
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./JS/algoritmos.js"></script>
+    <script src="./JS/ui.js"></script>
+
+    <title>Algoritmo de Procesos</title>
+  </head>
+
+  <body class="min-h-screen flex flex-col items-center justify-start py-10">
+    <!-- ================= PANTALLA INICIO ================= -->
+    <div id="pantallaInicio" class="card space-y-6 text-center">
+      <h1 class="text-3xl font-bold">Planificador de Procesos</h1>
+      <h2 class="text-gray-400 font-semibold">Selecciona un algoritmo</h2>
+
+      <div class="flex justify-center gap-6 mt-6 flex-wrap">
+        <button class="btn-primary" onclick="seleccionarAlgoritmo('fifo')">
+          FIFO
+        </button>
+
+        <button class="btn-success" onclick="seleccionarAlgoritmo('sjf')">
+          SJF
+        </button>
+
+        <button class="btn-warning" onclick="seleccionarAlgoritmo('rr')">
+          Round Robin
+        </button>
+
+        <button class="btn-danger" onclick="seleccionarAlgoritmo('prioridad')">
+          Prioridad
+        </button>
+
+        <button class="btn-damage" onclick="seleccionarAlgoritmo('mlfq')">
+          MLFQ
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= FORMULARIO ================= -->
+    <div id="pantallaFormulario" class="card oculto space-y-6">
+      <h2 id="tituloAlgoritmo" class="text-2xl font-semibold text-center"></h2>
+
+      <div class="space-y-4">
+        <label class="block text-gray-300">Número de procesos</label>
+
+        <input type="number" id="numProcesos" class="input-modern" />
+
+        <button class="btn-primary" onclick="generarInputs()">Continuar</button>
+      </div>
+
+      <div id="inputs" class="space-y-6"></div>
+    </div>
+
+    <!-- ================= RESULTADOS ================= -->
+    <div id="resultados" class="card oculto space-y-8">
+      <div id="salida" class="space-y-2"></div>
+
+      <h2 class="text-2xl font-bold text-center">Simulación en Tiempo Real</h2>
+
+      <div class="mt-6 space-y-8">
+        <!-- BOTONES CONTROL -->
+        <div class="flex gap-4 mb-4 flex-wrap justify-center">
+          <button class="btn-primary" onclick="iniciarSimulacion()">
+            ▶ Iniciar
+          </button>
+
+          <button class="btn-warning" onclick="pausarSimulacion()">
+            ⏸ Pausar
+          </button>
+
+          <button class="btn-danger" onclick="reiniciarSimulacion()">
+            🔄 Reiniciar
+          </button>
+
+          <button onclick="volverInicio()" class="btn-danger">
+            ⬅ Volver al inicio
+          </button>
+        </div>
+
+        <!-- CPU -->
+        <div class="text-center space-y-4">
+          <h3 class="text-lg font-semibold">CPU</h3>
+
+          <div
+            id="cpuBox"
+            class="w-32 h-32 mx-auto flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl text-2xl font-bold shadow-lg"
+          >
+            -
+          </div>
+        </div>
+
+        <!-- COLA -->
+        <div class="space-y-3">
+          <h3 class="text-lg font-semibold">Cola de Listos</h3>
+
+          <div
+            id="colaBox"
+            class="flex gap-3 bg-gray-800 p-4 rounded-lg min-h-[60px] flex-wrap"
+          ></div>
+        </div>
+
+        <!-- TIMELINE -->
+        <div class="space-y-3">
+          <h3 class="text-lg font-semibold">Línea de Tiempo</h3>
+
+          <div
+            id="ganttLive"
+            class="flex gap-2 bg-gray-800 p-4 rounded-lg overflow-x-auto min-h-[70px]"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
